@@ -1,20 +1,19 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { StylesProvider } from "@material-ui/core/styles";
-import { ThemeProvider } from "styled-components";
+/* import { StylesProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "styled-components"; */
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
-import theme from "./styles/theme";
+
+import ThemeProvider from "./components/ThemeProvider";
 
 ReactDOM.render(
   <Provider store={store}>
-    <StylesProvider injectFirst={true}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </StylesProvider>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </Provider>,
   document.getElementById("root")
 );
