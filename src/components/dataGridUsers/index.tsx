@@ -16,7 +16,7 @@ import {
 import { actions as homeActions } from "../../reducers/home.actions";
 
 import { DataGridUsersProps } from "./DataGridUsers.types";
-import useSortableData from "../../hooks/userHook";
+import useSortableData from "../../hooks/useSortTableData";
 import * as S from "./DataGridUsers.styles";
 
 function DataGrid({ rows, columns, title, loading }: DataGridUsersProps) {
