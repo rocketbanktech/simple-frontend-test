@@ -44,7 +44,7 @@ const data = [
     nome: "Eduardo Urbano",
     dataNascimento: new Date(1977, 5, 8),
     cep: "05311-000",
-    cidade: "Rio de Janeiro",
+    cidade: "São Paulo",
     uf: "SP",
   },
   {
