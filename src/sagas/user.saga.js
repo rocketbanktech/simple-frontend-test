@@ -7,7 +7,7 @@ import {
 } from "../reducers/routes.actions";
 import { actions } from "../reducers/user.actions";
 import { request } from "../utils/api";
-import usersMock from "./users.mock";
+import { dbUsers } from "./home.saga";
 
 function* userRouteWatcher() {
   yield routeWatcher(routes.USER, function* () {
@@ -17,20 +17,20 @@ function* userRouteWatcher() {
 
 const loadUser = asyncFlow({
   actionGenerator: actions.loadUser,
-  transform: function* () {
+  transform: function* (payload) {
     const id = yield select((state) => state.user.id);
-    return { id };
+    return { id, ...(!!payload ? payload : {}) };
   },
   api: (values) => {
     return request({
       url: `/usuario/${values.id}`,
       method: "get",
       isMock: true,
-      mockResult: usersMock.find((u) => u.id === values.id) ?? null,
+      mockResult: dbUsers.find((u) => u.id === values.id) ?? null,
     });
   },
   postSuccess: function* ({ response }) {
-    console.log({ user: response.data });
+    yield console.log({ user: response.data });
   },
 });
 
@@ -40,13 +40,13 @@ const saveUser = asyncFlow({
     const id = yield select((state) => state.user.id);
     return { id, ...payload };
   },
-  api: ({ id, ...values }) => {
+  api: (values) => {
     return request({
-      url: `/usuario/${id}`,
+      url: `/usuario/${values.id}`,
       method: "put",
       body: values,
       isMock: true,
-      mockResult: {},
+      mockResult: values,
     });
   },
   postSuccess: function* () {
