@@ -114,7 +114,7 @@ Para executar o projeto basta seguir os passos abaixo.
 1. Clone o repositório e abra a pasta dele:
 
 ```shell
-$ git clone https://github.com/EduSouza-programmer/challenge_tractian-Edu_Souza 
+$ git clone https://github.com/EduSouza-programmer/challenge_rocketbank-Edu_Souza 
 ```
 
 2. Instale as dependência com `yarn` ou `npm`:
