@@ -12,7 +12,7 @@ const routePages = {
 };
 
 const routePaths = {
-  [routes.HOME]: "/",
+  [routes.HOME]: "/simple-frontend-test",
   [routes.USER]: "/user/:id",
 };
 

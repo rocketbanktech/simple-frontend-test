@@ -34,7 +34,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "typecheck": "tsc --project tsconfig.json --noEmit"
@@ -69,5 +69,5 @@
     "node": ">=14.0.0 <16.0.0",
     "npm": ">=7.0.0"
   },
-  "homepage": "https://edusouza-programmer.github.io/challenge_rocketbank-Edu_Souza"
+  "homepage": "https://edusouza-forks.github.io/simple-frontend-test/"
 }
