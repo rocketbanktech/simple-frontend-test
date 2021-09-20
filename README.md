@@ -2,7 +2,7 @@
 <br/>
 
 <h5 align="center">
-  <img align="center" alt="Imagem Rocketbank" src="./public/img/rocketbank.svg" width="400px" />
+  <img align="center" alt="Imagem Rocketbank" src="./public/img/rocketbank.svg" width="300px" />
 </h5>
 
 <br/>
