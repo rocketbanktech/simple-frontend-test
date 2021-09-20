@@ -137,7 +137,7 @@ $ yarn start
 Como mencionado acima, gostei muito do desafio e foi muito útil lembra do redux e redux saga srsrs :muscle:, isto porque em outros projeto estou usando o graphql e o apolo client para fazer o estado dos dados e 
 todo o cache da aplicação, no entanto foi enriquecedor o desafio :+1:. Espero que gostem! Abaixo o link do deploy.
 
-Acesse o deploy do projeto [aqui](https://challenge-tractian-edu-souza-deploy.vercel.app/).
+Acesse o deploy do projeto [aqui](https://edusouza-forks.github.io/simple-frontend-test).
 
 
 <br/>
