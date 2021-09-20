@@ -145,7 +145,6 @@ export default responsiveFontSizes(
           button: {
             cursor: "pointer",
           },
-          "@font-face": [fontPoppins300, fontPoppins400, fontPoppins600],
           body: {
             fontFamily: `"Poppins","Roboto", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "sans-serif"`,
             fontSize: "1.6rem",
