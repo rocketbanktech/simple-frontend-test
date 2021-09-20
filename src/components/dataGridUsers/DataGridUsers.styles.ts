@@ -47,7 +47,7 @@ export const Title = styled.h3`
 `;
 
 export const Loading = styled.img.attrs(
-  ({ src = "/dots.svg", alt = "loading..." }) => ({ src, alt })
+  ({ src = "https://res.cloudinary.com/dppr8dksd/image/upload/v1632167245/dots_boegex.svg", alt = "loading..." }) => ({ src, alt })
 )`
   ${({ theme }) => css`
     display: block;
