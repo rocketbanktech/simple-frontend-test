@@ -49,3 +49,18 @@ export const request = async ({
 export default instance;
 
 export const handleApiErrors = (response) => response;
+
+export const putUsers = (items, values) =>
+  items.map((user) => {
+    if (user.id === values.id) {
+      return {
+        ...user,
+        ...values,
+        
+      };
+    }
+    return user;
+  });
+
+export const delUsers = (items, id) =>
+  items.filter((item) => item.id !== id);
