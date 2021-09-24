@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
 
+
     background: rgb(252, 252, 252);
     background: linear-gradient(
       180deg,
@@ -111,6 +112,7 @@ export const Row = styled.tr`
     flex-direction: column;
     padding: ${theme.spacings.xxsmall};
 
+
     &:nth-child(2n) {
       background-color: rgba(185, 209, 241, 1);
     }
@@ -138,6 +140,7 @@ export const TD = styled.td`
     position: relative;
     padding: ${theme.spacings.xxsmall} 0;
     font-weight: ${theme.typography.fontWeightLight};
+    font-size: 1.5rem;
 
     &::before {
       content: attr(data-title);
@@ -151,6 +154,7 @@ export const TD = styled.td`
       display: table-cell;
       text-align: left;
       padding: ${theme.spacings.xxsmall} ${theme.spacings.xxsmall};
+      
 
       &:last-child {
         text-align: center;
@@ -164,17 +168,19 @@ export const TD = styled.td`
 
     ${theme.media.greaterThan("medium")`
         padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
+        
     `}  
 
 
     ${theme.media.greaterThan("large")`
         padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
+        font-size: 1.6rem;
 
        &:nth-child(1) {
-        width: 50%;
+        width: 45%;
       }
       &:nth-child(2) {
-        width: 20%;
+        width: 25%;
       }
       &:nth-child(3) {
         width: 20%;

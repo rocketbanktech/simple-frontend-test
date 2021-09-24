@@ -5,6 +5,7 @@ const initialState = {
   id: null,
   data: null,
   loading: false,
+  inputLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,27 @@ const reducer = (state = initialState, action) => {
           action.type === actions.loadUser.SUCCESS
             ? action.payload.response.data
             : null,
+      };
+    case actions.updateUser.REQUEST:
+    case actions.updateUser.SUCCESS:
+    case actions.updateUser.FAILURE:
+      return {
+        ...state,
+        data:
+          action.type === actions.updateUser.SUCCESS
+            ? action.payload.response.data
+            : [],
+      };
+    case actions.requestCep.REQUEST:
+    case actions.requestCep.SUCCESS:
+    case actions.requestCep.FAILURE:
+      return {
+        ...state,
+        inputLoading: action.type === actions.requestCep.REQUEST,
+        data:
+          action.type === actions.requestCep.SUCCESS
+            ? action.payload.response.data
+            : [],
       };
     default:
       return state;

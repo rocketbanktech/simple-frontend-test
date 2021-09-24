@@ -15,9 +15,12 @@ import {
 } from "../../reducers/routes.actions";
 import { actions as homeActions } from "../../reducers/home.actions";
 
-import { DataGridUsersProps } from "./DataGridUsers.types";
 import useSortableData from "../../hooks/useSortTableData";
+import { calcAge } from '../../utils/calcAge';
+
+import { DataGridUsersProps } from "./DataGridUsers.types";
 import * as S from "./DataGridUsers.styles";
+
 
 function DataGrid({ rows, columns, title, loading }: DataGridUsersProps) {
   const [isOpen, SetIsOpen] = useState(false);
@@ -40,13 +43,13 @@ function DataGrid({ rows, columns, title, loading }: DataGridUsersProps) {
                 const lastColumn = index === array.length - 1;
                 return (
                   <S.Columns
-                    classIcon={col.field}
+                    classIcon={col.className}
                     scope="col"
                     key={`${col.field}_${col.id}`}
                   >
                     {col.field}
                     {!lastColumn && (
-                      <span className={String(col.field)}>
+                      <span className={String(col.className)}>
                         <S.ButtonArrow
                           onClick={() => requestSort(col.sortData)}
                           aria-label="Sort"
@@ -68,6 +71,7 @@ function DataGrid({ rows, columns, title, loading }: DataGridUsersProps) {
                 <S.Row key={u.id}>
                   <S.TD data-title="Nome">{u.nome}</S.TD>
                   <S.TD data-title="Idade">
+                    {calcAge(u.dataNascimento)}{" "}anos, {" "}
                     {new Intl.DateTimeFormat("pt-BR", {
                       day: "numeric",
                       month: "short",

@@ -21,7 +21,6 @@ const ControlledTextField = React.forwardRef(
             error={isError}
             variant="outlined"
             inputRef={ref}
-            helperText={errors[name]?.message}
             onChange={(v) => {
               onChange(v);
               !!otherProps.onChange && otherProps.onChange(v);

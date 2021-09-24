@@ -19,18 +19,67 @@ const loadUser = asyncFlow({
   actionGenerator: actions.loadUser,
   transform: function* (payload) {
     const id = yield select((state) => state.user.id);
-    return { id, ...(!!payload ? payload : {}) };
+    return { id, ...payload };
+  },
+  api: (values) => {
+    const user = dbUsers.find((u) => u.id === values.id) ?? null;
+    const data = { ...user, ...values };
+    return request({
+      url: `/usuario/${values.id}`,
+      method: "get",
+      isMock: true,
+      mockResult: data,
+    });
+  },
+  postSuccess: function* ({ response }) {
+    yield console.log({ user: response.data });
+  },
+});
+
+const updateUser = asyncFlow({
+  actionGenerator: actions.updateUser,
+  transform: function* (payload) {
+    const data = yield select((state) => state.user.data);
+    return { ...data, ...payload };
   },
   api: (values) => {
     return request({
       url: `/usuario/${values.id}`,
       method: "get",
       isMock: true,
-      mockResult: dbUsers.find((u) => u.id === values.id) ?? null,
+      mockResult: values,
     });
   },
-  postSuccess: function* ({ response }) {
+
+  postSuccess: function* ({ response, values }) {
     yield console.log({ user: response.data });
+  },
+});
+
+const requestCep = asyncFlow({
+  actionGenerator: actions.requestCep,
+  transform: function* (payload) {
+    const data = yield select((state) => state.user.data);
+    return { ...data, ...payload };
+  },
+  api: (values) => {
+    return request({
+      url: `https://viacep.com.br/ws/${values.cep}/json`,
+      method: "get",
+      isMock: false,
+      mockResult: values,
+    });
+  },
+
+  postSuccess: function* ({ response, values }) {
+    yield console.log({ user: response.data });
+    const { localidade: cidade } = response.data;
+    const data = {
+      ...values,
+      ...response.data,
+      cidade,
+    };
+    yield put(actions.loadUser.request(data)); 
   },
 });
 
@@ -49,8 +98,8 @@ const saveUser = asyncFlow({
       mockResult: values,
     });
   },
-  postSuccess: function* () {
-    yield put(routeActions.redirectTo(routes.HOME));
+  postSuccess: function* ({ response }) {
+    yield put(routeActions.redirectTo(routes.HOME, { ...response.data }));
   },
 });
 
@@ -58,4 +107,6 @@ export const sagas = [
   userRouteWatcher(),
   loadUser.watcher(),
   saveUser.watcher(),
+  updateUser.watcher(),
+  requestCep.watcher()
 ];

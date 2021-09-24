@@ -7,6 +7,7 @@ type Column = {
   field: string;
   id: string;
   sortData: string;
+  className: string;
 };
 
 type Row = typeof mock[0];

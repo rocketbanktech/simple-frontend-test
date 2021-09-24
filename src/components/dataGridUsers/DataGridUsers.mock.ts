@@ -5,16 +5,19 @@ export default [
     field: "Nome",
     id: "1",
     sortData: "nome",
+    className: "nome",
   },
   {
-    field: "Idade",
+    field: "Idade/Data de Nasc.",
     id: "2",
     sortData: "dataNascimento",
+    className: "idade",
   },
   {
     field: "Cidade",
     id: "3",
     sortData: "cidade",
+    className: "cidade",
   },
 
   {

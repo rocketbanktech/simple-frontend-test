@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   ${({ theme }) => css`
     display: flex;
+    height: 70vh;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     max-width: 55rem;
     padding: 0 ${theme.spacings.xsmall};
@@ -43,12 +43,19 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
     grid-template-columns: 1fr;
-
+    
     ${theme.media.greaterThan("xsmall")`
         grid-template-columns: 1fr  1fr  1fr;
     `}
 
     column-gap: 1rem;
     width: 100%;
+
+
+    .inputLoading {
+    padding: 0 10px; 
+    transform: scale(0.4);
+    width: 100%;
+    }
   `}
 `;

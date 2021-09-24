@@ -15,7 +15,7 @@ const asyncFlow = ({
   actionGenerator,
   transform = (p) => p,
   api,
-  preSuccess = () => {},
+  preSuccess = () => ({}),
   postSuccess = () => {},
   preFailure = () => {},
   postFailure = genericErrorHandler,
