@@ -1,10 +1,9 @@
-import { createRef, useEffect } from "react";
+import { createRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Save } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 import { actions } from "../reducers/user.actions";
-import { actions as homeActions } from "../reducers/home.actions";
 import { Button } from "@material-ui/core";
 import { ControlledTextField } from "../components/inputs";
 import ZipCodeTextField from "../components/inputs/ZipCodeTextField";
@@ -31,7 +30,6 @@ const UserPage = () => {
     ...data,
   };
 
-  console.log("aloooooooooooo", initialValues);
   const formProps = {
     ...useForm(),
     rules,
